@@ -24,6 +24,7 @@ const App = () => {
       <header className="App-header">
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <TodoList todos={todos} setTodos={setTodos}/>
+        <h1>hi</h1>
       </header>
     </div>
   );
