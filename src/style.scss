@@ -1,0 +1,32 @@
+.input {
+  // height: 40px;
+  // .input_box{
+  //     height: 100%;
+  // }
+  // .input_button{
+  //     height: 100%;
+  // }
+}
+.todos {
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.todos_single {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  background-color: teal;
+  padding: 5px 10px;
+  margin-top: 10px;
+  height: 30px;
+    align-items: center;
+  .icons {
+    display: flex;
+    gap: 5px;
+    .icon {
+      cursor: pointer;
+    }
+  }
+}
