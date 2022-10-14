@@ -3,3 +3,7 @@ export interface Todo {
     todo: string;
     isDone: boolean
 }
+export interface Action{
+    type: string;
+    payload: number | string[] | number[]
+}
