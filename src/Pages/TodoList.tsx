@@ -12,7 +12,7 @@ const TodoListComp = () => {
 
   const { list, counter } = useSelector((state: any) => state)
 
-  
+
 
 
   const [todo, setTodo] = useState<string>("")
@@ -21,27 +21,28 @@ const TodoListComp = () => {
   const handleAdd = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault()
     if (todo) {
-      let data=[...todos, {id: Date.now(), todo: todo, isDone: false }]
+      let data = [...todos, { id: Date.now(), todo: todo, isDone: false }]
       setTodos([...data])
       setTodo("")
-      dispatch(addlist([...data]))
-      console.log(data);
+      dispatch(addlist(JSON.stringify([...data])))
     }
   }
+  const IsParsable = (data: any) => {
+    try {
+      JSON.parse(data);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+  const ListAll = IsParsable(list) ? JSON.parse(list) : false
+  console.log("List", ListAll);
+  console.log("todos", todos);
 
-  // console.log("List", list);
-  
   return (
     <div >
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todos={todos} setTodos={setTodos} />
-      {counter}
-      {list}
-      <button onClick={(e) => {
-        e.preventDefault()
-        dispatch(increment())
-        dispatch(addlist(todos.toString()))
-      }}>click</button>
+      <TodoList todos={ListAll} setTodos={setTodos} />
     </div>
   );
 }
